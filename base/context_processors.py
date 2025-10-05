@@ -169,13 +169,17 @@ def white_labelling_company(request):
         except:
             company = hq
 
+        from django.conf import settings
+
         return {
-            "white_label_company_name": company.company if company else "Horilla",
+            "white_label_company_name": company.company if company else getattr(settings, "SITE_NAME", "PeopleForever"),
             "white_label_company": company,
         }
     else:
+        from django.conf import settings
+
         return {
-            "white_label_company_name": "Horilla",
+            "white_label_company_name": getattr(settings, "SITE_NAME", "PeopleForever"),
             "white_label_company": None,
         }
 
@@ -299,3 +303,12 @@ def enable_profile_edit(request):
             ACCESSBILITY_FEATURE.append(("profile_edit", _("Profile Edit Access")))
 
     return {"profile_edit_enabled": enable}
+
+
+def site_name(request):
+    """
+    Provide SITE_NAME to all templates.
+    """
+    from django.conf import settings
+
+    return {"SITE_NAME": getattr(settings, "SITE_NAME", "PeopleForever")}

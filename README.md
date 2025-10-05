@@ -1,14 +1,14 @@
-# **Horilla 🦍** [![LGPL License](https://img.shields.io/badge/license-LGPL-green.svg)](https://www.gnu.org/licenses/lgpl-3.0)  [![Docker](https://img.shields.io/badge/Docker-Horilla-blue?logo=docker)](https://hub.docker.com/r/horilla/horilla)
+# **PeopleForever 🦍** [![LGPL License](https://img.shields.io/badge/license-LGPL-green.svg)](https://www.gnu.org/licenses/lgpl-3.0)  [![Docker](https://img.shields.io/badge/Docker-PeopleForever-blue?logo=docker)](https://hub.docker.com/r/horilla/horilla)
 
-**Horilla** is a Free and Open Source HRMS (Human Resource Management System) Software designed to streamline HR processes and enhance organizational efficiency.
+**PeopleForever** is a Free and Open Source HRMS (Human Resource Management System) Software designed to streamline HR processes and enhance organizational efficiency.
 
-![Horilla Screenshot](https://github.com/horilla-opensource/horilla/assets/131998600/1317bd0a-03a8-40be-8fb2-ecb655bb5c13)
+![PeopleForever Screenshot](https://github.com/horilla-opensource/horilla/assets/131998600/1317bd0a-03a8-40be-8fb2-ecb655bb5c13)
 
 ---
 
 ## **Installation**
 
-Horilla can be installed on your system by following the steps below. Ensure you have **Python**, **Django**, and a **database** (preferably PostgreSQL) installed as prerequisites.
+PeopleForever can be installed on your system by following the steps below. Ensure you have **Python**, **Django**, and a **database** (preferably PostgreSQL) installed as prerequisites.
 
 ---
 
@@ -41,36 +41,37 @@ Horilla can be installed on your system by following the steps below. Ensure you
    ```
 2. Install Python:
    ```bash
-   brew install python
+PeopleForever can be installed on your system by following the steps below. Ensure you have **Python**, **Django**, and a **database** (preferably PostgreSQL) installed as prerequisites.
    ```
 3. Verify the installation:
-   ```bash
-   python3 --version
-   ```
-
----
-
+    - Create a new role and database:
+       ```sql
+       CREATE ROLE peopleforever LOGIN PASSWORD 'peopleforever';
+       CREATE DATABASE peopleforever_main OWNER peopleforever;
+       \q
+       ```
 
 ### **2. PostgreSQL Installation**
-
-#### **Ubuntu**
-1. **Update System Packages**:
-   ```bash
-   sudo apt update && sudo apt upgrade -y
-   ```
+    - Create a new role and database:
+       ```sql
+       CREATE ROLE peopleforever LOGIN PASSWORD 'peopleforever';
+       CREATE DATABASE peopleforever_main OWNER peopleforever;
+       \q
+       ```
 
 2. **Install PostgreSQL**:
-   ```bash
-   sudo apt install postgresql postgresql-contrib -y
-   ```
-
-3. **Start and Enable PostgreSQL**:
-   ```bash
+    - Create a new role and database:
+       ```bash
+       createdb peopleforever_main
+       createuser peopleforever
+       psql -c "ALTER USER peopleforever WITH PASSWORD 'peopleforever';"
+       ```
    sudo systemctl start postgresql
    sudo systemctl enable postgresql
    ```
+If you wish to run the PeopleForever application on a different port, specify the port number after the `runserver` command. For example:
 
-4. **Verify Installation**:
+[PeopleForever](https://www.horilla.com/) is an open-source HRMS solution designed to simplify HR operations and improve organizational efficiency.
    ```bash
    psql --version
    ```
@@ -83,8 +84,8 @@ Horilla can be installed on your system by following the steps below. Ensure you
      ```
    - Create a new role and database:
      ```sql
-     CREATE ROLE horilla LOGIN PASSWORD 'horilla';
-     CREATE DATABASE horilla_main OWNER horilla;
+   CREATE ROLE peopleforever LOGIN PASSWORD 'peopleforever';
+   CREATE DATABASE peopleforever_main OWNER peopleforever;
      \q
      ```
    - Exit the `postgres` user:
@@ -113,8 +114,8 @@ Horilla can be installed on your system by following the steps below. Ensure you
      ```
    - Create a new role and database:
      ```sql
-     CREATE ROLE horilla LOGIN PASSWORD 'horilla';
-     CREATE DATABASE horilla_main OWNER horilla;
+   CREATE ROLE peopleforever LOGIN PASSWORD 'peopleforever';
+   CREATE DATABASE peopleforever_main OWNER peopleforever;
      \q
      ```
 
@@ -139,16 +140,16 @@ Horilla can be installed on your system by following the steps below. Ensure you
 4. **Configure PostgreSQL Database and User**:
    - Create a database and user:
      ```bash
-     createdb horilla_main
-     createuser horilla
-     psql -c "ALTER USER horilla WITH PASSWORD 'horilla';"
+   createdb peopleforever_main
+   createuser peopleforever
+   psql -c "ALTER USER peopleforever WITH PASSWORD 'peopleforever';"
      ```
 
 ---
 
-## **Install Horilla**
+## **Install PeopleForever**
 
-Follow the steps below to install **Horilla** on your system. Horilla is compatible with **Ubuntu**, **Windows**, and **macOS**.
+Follow the steps below to install **PeopleForever** on your system. PeopleForever is compatible with **Ubuntu**, **Windows**, and **macOS**.
 
 ---
 
@@ -230,9 +231,9 @@ git pull horilla master
    ALLOWED_HOSTS=www.example.com,example.com,*
    DB_INIT_PASSWORD=d3f6a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d
    DB_ENGINE=django.db.backends.postgresql
-   DB_NAME=horilla_main
-   DB_USER=horilla
-   DB_PASSWORD=horilla
+   DB_NAME=peopleforever_main
+   DB_USER=peopleforever
+   DB_PASSWORD=peopleforever
    DB_HOST=localhost
    DB_PORT=5432
    ```
@@ -290,15 +291,15 @@ python manage.py runserver
 
 ---
 
-### **Accessing Horilla**
+### **Accessing PeopleForever**
 
-If everything is configured correctly, you should be able to access your Horilla app at **http://localhost:8000**.
-![Initialize Database in Horilla HRMS](https://www.horilla.com/wp-content/uploads/2024/12/how-to-initialize-the-database-in-horilla-hrms-step-by-step-1-1024x576.png)
+If everything is configured correctly, you should be able to access your PeopleForever app at **http://localhost:8000**.
+![Initialize Database in PeopleForever HRMS](https://www.horilla.com/wp-content/uploads/2024/12/how-to-initialize-the-database-in-horilla-hrms-step-by-step-1-1024x576.png)
 
 
 #### **Initial Setup**
 From the login page, you will have two options:
-1. **Initialize Database**: Use this option to initialize the Horilla database by creating a super admin, headquarter company, department, and job position. Authenticate using the `DB_INIT_PASSWORD` specified in the `.env` file.
+1. **Initialize Database**: Use this option to initialize the PeopleForever database by creating a super admin, headquarter company, department, and job position. Authenticate using the `DB_INIT_PASSWORD` specified in the `.env` file.
 2. **Load Demo Data**: Use this option if you want to work with demo data. Authenticate using the `DB_INIT_PASSWORD` specified in the `.env` file.
 
 #### **Running on a Custom Port**

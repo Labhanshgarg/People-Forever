@@ -218,6 +218,9 @@ LOCALE_PATHS = [
     join(BASE_DIR, "horilla", "locale"),
 ]
 
+# Site name for templates and UI
+SITE_NAME = env("SITE_NAME", default="PeopleForever")
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/

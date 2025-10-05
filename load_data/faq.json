@@ -37,8 +37,8 @@
             "created_by": 1,
             "modified_by": 1,
             "is_active": true,
-            "question": "What is the Payroll module in Horilla HRMS?",
-            "answer": "The Payroll module in Horilla HRMS enables businesses to manage employee allowances, deductions, taxes, and generate accurate payslips, ensuring streamlined and efficient payroll processes.",
+            "question": "What is the Payroll module in PeopleForever HRMS?",
+            "answer": "The Payroll module in PeopleForever HRMS enables businesses to manage employee allowances, deductions, taxes, and generate accurate payslips, ensuring streamlined and efficient payroll processes.",
             "category": 2,
             "company_id": null,
             "tags": [10]

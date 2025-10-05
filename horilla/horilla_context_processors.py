@@ -32,6 +32,10 @@ TEMPLATES[0]["OPTIONS"]["context_processors"].append(
 )
 
 TEMPLATES[0]["OPTIONS"]["context_processors"].append(
+    "base.context_processors.site_name",
+)
+
+TEMPLATES[0]["OPTIONS"]["context_processors"].append(
     "base.context_processors.get_initial_prefix",
 )
 TEMPLATES[0]["OPTIONS"]["context_processors"].append(
